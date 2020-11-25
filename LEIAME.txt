@@ -1,0 +1,32 @@
+Trabalho 1: Domínios e testes
+Aluna: Regina Emy NK
+Matrícula: 190037351
+
+Entidades checam se os parâmetros dos setters apontam para endereço NULL e testes configuram a validação dos valores de seus dominios.
+
+Primeiramente, gostaria de agradecer pela extensão do prazo, que me permitiu quase terminar o trabalho.
+No entanto, restam os seguintes erros na liberação de memória que resultam em  de ao menos 100 bytes: 
+    testeEntidades.cpp 315: no Teste Falha do Usuario, o delete de um de seus ponteiros para domínios(senha) trazia o erro "free(): invalid pointer" resultava em SIGABORT
+    ? : no Teste Aplicação, há um vazamento de memória que não consigo identificar
+    Está atrelada uma imagem memoryLeak.png com o teste de memória
+Alguns domínios não tinham sucesso em teste(CodigoDeAgencia, CodigoDeAplicaaco,Cpf e Horario), por isso seus valores não foram verificados.
+em testes  de entidades.Vale notar que o projeto codeblocks foi criado em uma máquina virtual Windows devido à 
+complicações involvendo o gcc/g++ na máquina de desenvolvimento Linux utilizada. Para execução com tal compilador, seguem as linhas
+de comando:
+            
+                cd [path]/T1-TP1-190037351/              
+                g++ -c dominios.cpp
+                g++ -c entidades.cpp
+                g++ -c testesEntidades.cpp
+                ar rvs libTP1.a dominios.o
+                ar rvs libTP1.a testes.o
+                ar rvs libTP1.a entidades.o
+                ar rvs libTP1.a testesEntidades.o
+                g++  main.cpp libTP1.a
+                ./a.out
+                gdb ./a.out
+
+Este projeto foi desenvolvido em C++11 com g++ e gdb.
+
+Classes possuem estePadrao e variáveis possuem este_padrao de nome.
+Para acessar o doxygen, por favor dirija-se ao arquivo html/index.html 
